@@ -12,6 +12,11 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        Debug.Log("Trying to open loaded file if exists");
+        ScoreData data = SaveSystem.Load();
+
+        Score.bestScore = data.bestScore;
     }
 
     // Update is called once per frame

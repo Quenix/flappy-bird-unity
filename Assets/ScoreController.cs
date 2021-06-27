@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ScoreController : MonoBehaviour
 {
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Score.score++;
@@ -11,7 +12,9 @@ public class ScoreController : MonoBehaviour
         if (Score.score > Score.bestScore)
         {
             Score.bestScore = Score.score;
+            SaveSystem.Save();
         }
 
     }
+  
 }

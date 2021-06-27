@@ -7,7 +7,7 @@ public class ScoreHandler : MonoBehaviour
 {
 
     public Text textScore;
-    public bool isBestScore;
+    public bool isBestScore;    
 
     // Start is called before the first frame update
     void Start()
