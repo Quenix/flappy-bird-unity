@@ -4,11 +4,12 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem
 {
+    static string path = Application.persistentDataPath + "/player.storage";
+
     public static void Save()
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/player.storage";
-
+      
         FileStream stream = new FileStream(path, FileMode.Create);
 
         ScoreData data = new ScoreData();
@@ -20,8 +21,6 @@ public static class SaveSystem
 
     public static ScoreData Load()
     {
-        
-        string path = Application.persistentDataPath + "/player.storage";
 
         if (File.Exists(path))
         {
@@ -36,7 +35,6 @@ public static class SaveSystem
         }
         else
         {
-            Debug.Log("NAO TEM NENHUM DADO SALVO");
             return null;
         }
 

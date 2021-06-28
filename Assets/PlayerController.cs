@@ -13,26 +13,24 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        Debug.Log("Trying to open loaded file if exists");
+        // Loads game data
         ScoreData data = SaveSystem.Load();
 
-        Score.bestScore = data.bestScore;
+        if(data != null)
+        {
+            Score.bestScore = data.bestScore;
+        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         bool isClicking = Input.GetMouseButtonDown(0);
-        bool isClickingRight = Input.GetMouseButtonDown(1);
 
         if (isClicking)
         {
             rb.velocity = Vector2.up * velocity;
-        }
-
-        if (isClickingRight)
-        {
-            rb.velocity = Vector2.down * velocity;
         }
     }
 
